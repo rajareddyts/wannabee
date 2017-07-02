@@ -1,14 +1,26 @@
 import { Component } from '@angular/core';
-import { AuthService } from "./core/auth.service";
+
+import { AnimationsService } from './shared/animations/index';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
+
 export class AppComponent {
+  public activateAnimation = false;
 
-  constructor() {}
-  title = 'Wannabee app works!';
-
+  /**
+   * Constructor of the class
+   *
+   * @param {AnimationsService} animationService
+   */
+  public constructor(
+    private animationService: AnimationsService
+  ) {
+    this.animationService.activateAnimation$.subscribe(
+      (value) => this.activateAnimation = value
+    );
+  }
 }
