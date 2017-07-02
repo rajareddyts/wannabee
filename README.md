@@ -1,144 +1,114 @@
-# Angular/Firebase/Material - Demo
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Build Status](https://travis-ci.org/tarlepp/angular2-firebase-material-demo.png?branch=master)](https://travis-ci.org/tarlepp/angular2-firebase-material-demo)
-[![codecov](https://codecov.io/gh/tarlepp/angular2-firebase-material-demo/branch/master/graph/badge.svg)](https://codecov.io/gh/tarlepp/angular2-firebase-material-demo)
-[![Dependency Status](https://david-dm.org/tarlepp/angular2-firebase-material-demo.svg)](https://david-dm.org/tarlepp/angular2-firebase-material-demo)
-[![devDependency Status](https://david-dm.org/tarlepp/angular2-firebase-material-demo/dev-status.svg)](https://david-dm.org/tarlepp/angular2-firebase-material-demo#info=devDependencies)
+[![demolive](https://img.shields.io/badge/demo-live-green.svg)](http://angular4.jerouw.nl/)
+[![license](https://img.shields.io/npm/l/express.svg)](https://github.com/jeroenouw/Angular4MaterialDesign/blob/master/LICENSE/)
+[![dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/jeroenouw/Angular4MaterialDesign/blob/master/package.json)
+[![updates](https://img.shields.io/badge/updates-weekly-yellowgreen.svg)](https://github.com/jeroenouw/Angular4MaterialDesign/commits/master)
 
-## Table of Contents
- * [What is this](#what-is-this)
- * [Demo](#demo)
- * [Used libraries, guides, etc.](#used-libraries-guides-etc)
-   * [Libraries](#libraries)
-   * [Guides](#guides)
-   * [Other resources](#other-resources)
- * [Installation](#installation)
-   * [Configuration](#configuration)
-   * [Firebase](#firebase)
- * [Development](#development)
- * [Tests](#tests)
-   * [Unit tests](#unit-tests)
-   * [e2e tests](#e2e-tests)
- * [Build](#build)
- * [Author](#author)
- * [License](#license)
+![logo](https://jerouw.nl/wp-content/uploads/2017/05/ngfbmd.png "Logo")  
 
-## What is this
-Just a small demo to show how to use [Angular2](https://angular.io/) + [Firebase](https://firebase.google.com/) + 
-[Google Material Design](https://www.google.com/design/spec/material-design/introduction.html) together. Currently
-this demo application contains following features:
- * Social media login (Facebook, Twitter, Google+ and GitHub)
- * Personal 'Todo' item list
- * Chat with other users
- 
-## Demo
-Demo of this application can be found from [https://fir-todo-v3.firebaseapp.com/](https://fir-todo-v3.firebaseapp.com/).
+# Angular 4 | Material Design | Firebase - Starter kit
+A full stack starter app containing [Angular 4](https://angular.io), [Material](https://material.io/) and [Firebase](https://firebase.google.com/).
 
-![QR code to demo application](https://raw.github.com/tarlepp/angular2-firebase-material-demo/master/qrcode.png)
+### Project is still in progress
 
-## Used libraries, guides, etc.
+## [Live demo](http://angular4.jerouw.nl) 
+![loginpage](https://jerouw.nl/wp-content/uploads/2017/05/ngfbmdprintscreen.png "Logo")
+![githubauth](https://jerouw.nl/wp-content/uploads/2017/06/ng4githubauth.png "Logo")
 
-### Libraries
- * [Angular 2](https://github.com/angular/angular)
- * [Material Design for Angular 2](https://github.com/angular/material2)
- * [AngularFire2](https://github.com/angular/angularfire2)
- * [angular2-moment](https://github.com/urish/angular2-moment)
- * [Angular-CLI](https://github.com/angular/angular-cli)
- 
-### Guides
- * [Angular 2 style guide](https://angular.io/docs/ts/latest/guide/style-guide.html)
- 
-### Other resources
- * [Firebase](https://firebase.google.com/)
- * [Material design](https://www.google.com/design/spec/material-design/)
+## Quick start
+First clone this repo: `git clone https://github.com/jeroenouw/Angular4MaterialDesign.git`.  
+Change directory to this project  
+Run `npm install` to install all the dependencies.  
+Run `npm start` or `ng serve` to run this project.  
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.  
 
-## Installation
-First of all you have to install ```npm``` and ```node.js``` to your box. Installation instructions can
-be found [here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager). 
-
-Note that ```node.js 6.x``` is required.
-
-```bash
-$ git clone https://github.com/tarlepp/angular2-firebase-material-demo.git
-$ cd angular2-firebase-material-demo
-
-# install the project's dependencies
-$ npm install
-
-# fast install (via Yarn, https://yarnpkg.com)
-$ yarn install  # or yarn
-```
-
-### Configuration
-See ```/src/app/config/config.ts_example``` file and copy it to ```/src/app/config/config.ts``` file and make
-necessary changes to it. Note that you need a Firebase account to get all necessary config values.
-
-### Firebase
-To get Firebase running as it should first you need to make new Firebase application. Which you can create easily from
-their website [https://firebase.google.com/](https://firebase.google.com/).
-
-After you have created new application you need to make some [security rules](https://firebase.google.com/docs/database/security/quickstart) 
-for the used data storage. Below is configuration that this demo application uses, so you can use the same within your 
-application.
-
-```
-{
-    "rules": {
-      "messages": {
-          ".write": "auth !== null",
-          ".read": "auth !== null"
-      },
-      "todos": {
-        "$uid": {
-          // grants write access to the owner of this user account whose uid must exactly match the key ($uid)
-          ".write": "auth !== null && auth.uid === $uid",
-          // grants read access to any user who is logged in with Facebook
-          ".read": "auth !== null && auth.uid === $uid"
-        }
-      }
-    }
-}
-```
-
-These rules ensure that 'todo' items are show only to user who made those. Also chat messages requires that user is
-logged in to read / write those.
+To build the project run `npm run dist`.
 
 ## Development
-To start developing in the project run:
+For own projects please use different keys in app.component.ts:  
+``` firebase.initializeApp({ ```   
+```     // For other projects use different keys```  
+```    apiKey: '[YOUR_KEY]',```  
+```     authDomain: '[YOUR_KEY]',```  
+```    databaseURL: '[YOUR_KEY]',```  
+```    projectId: '[YOUR_KEY]',```  
+```   storageBucket: '[YOUR_KEY]',```    
+```  messagingSenderId: '[YOUR_KEY]'```  
+```    });```  
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-```bash
-$ npm start
-# OR
-$ ng serve
-```
+### Including in this project:
+* Angular 4 front-end with Material Design
+* Firebase back-end (0Auth authentication and NoSQL database)
+* Home page
+* About page
+* Contact page
+* Misc page
+* 404 page
+* Save email (keep in touch)
+* Authentication (Email, Google, Twitter, Facebook, Github and Anonymous)
+* Verification email after signup
+* Auth Guard
+* Profile
+* Profile image animation
+* Profile settings
+* Password reset
+* Messaging system
+* Alerts
+* 360 view
+* Multiple pipes
+* Carousel
+* Translatations
+* Tests
+* Back to top button
+* Loading spinner and progress bar
 
-Then head to `http://localhost:4200` in your browser.
+### Specific Angular 4 usage in this project:
+* Animations (@angular/platform-browser/animations)
+* ng-template
+* ngIf else
+* Titlecase pipe
 
-## Tests
+### Specific Material Design usage in this project:
+* MD Datepicker
+* MD Input
+* MD Slide toggle
+* MD Menu
+* MD Sidenav
+* MD Toolbar
+* MD Card
+* MD Tabs
+* MD Buttons
+* MD Icon
+* MD Progress spinner
+* MD Progress bar
+* MD Dialog
+* MD Tooltip
+* MD Snackbar
 
-### Unit tests
-To run tests run:
-```bash
-$ npm test
-# OR
-$ ng test
-```
+## To Do List
+* Make every component responsive
 
-### e2e tests
-To run tests run:
-```bash
-$ npm run e2e
-# OR
-$ ng e2e
-```
+## To Finish List (known issues)
+### Auth
+* Cellphone authentication
+* Optimizing alerts
+* Google, Facebook, Twitter & Github signin/signup
+* Error messages: Email already exists, login failed, registration failed
 
-## Build
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Sending
+* Contact form send
 
-## Author
-Tarmo Leppänen
+### Profile
+* Dialog component
+* File uploading
+* Change settings
+* Messaging layout and functionality
 
-## License
-[The MIT License (MIT)](LICENSE)
+### Tests
+* Unit
+* e2e
 
-Copyright (c) 2016 Tarmo Leppänen
+### Other
+* i18n translations
+* Internal server error 500
+* 360 view only working on localhost
