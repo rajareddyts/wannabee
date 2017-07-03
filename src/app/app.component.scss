@@ -1,6 +1,15 @@
-.app-content {
-  padding: 20px;
+header {
+  order: 1;
+  flex-shrink: 0;
 }
-.app-content md-card{
-  margin: 20px;
+
+article {
+  order: 2;
+  flex: 1;
+  overflow: auto;
+}
+
+footer {
+  order: 3;
+  flex-shrink: 0;
 }
