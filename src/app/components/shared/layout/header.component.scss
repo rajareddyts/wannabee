@@ -32,14 +32,22 @@ span a, span a:hover {
 
 a, a:hover { 
   text-decoration: none;
-  color:rgba(0,0,0,.87);
-}
-
-.mat-icon {
-  text-decoration: none;
-  color:rgba(255,255,255,.87);
+  // color:rgba(0,0,0,.87);
 }
 
 .login, .logout, .profile, .messages, .settings {
   color: #333;
-} 
+}
+@media only screen and (max-width: 1024px) {
+
+  .menu-link{
+    display: none;
+  }
+  .mat-icon{
+    display: none;
+  }
+  .spacer{
+    margin-right: 5px;
+  }
+
+}

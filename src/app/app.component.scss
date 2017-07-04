@@ -1,6 +1,12 @@
 .app-content {
-  padding: 20px;
-}
-.app-content md-card{
-  margin: 20px;
+  max-width: 860px;
+  position: relative;
+  padding: 24px;
+  margin: 80px auto 0;
+  left: 0;
+  right: 0;
+  @media only screen and (max-width: 500px) {
+    padding: 0px;
+    margin: 13px 8px;
+  }
 }

@@ -10,89 +10,9 @@
 
   <span class="spacer"></span>
 
-  <div *ngIf="!authService.isAuthenticated();">
-    <app-date-pipe></app-date-pipe>
-  </div>
-
-  <span class="spacer-light"></span>
 
     <div *ngIf="!authService.isAuthenticated(); else loggedin">
-      <a routerLink="/signup"><md-icon>person_add</md-icon></a>
-      <a routerLink="/login"><md-icon>lock_open</md-icon></a>
+      <a routerLink="/signup" md-raised-button color="accent"><md-icon class="icon">person_add</md-icon> Sign Up</a>
+          <span class="spacer-light"></span>
+      <a routerLink="/login" md-raised-button color="warn"><md-icon class="icon">lock_open</md-icon>Login</a>
     </div>
-
-    <ng-template #loggedin>
-        <h4>(User: {{userEmail()}})</h4>
-        <!-- <md-icon>verified_user</md-icon> -->
-       
-        <button md-icon-button [mdMenuTriggerFor]="menu">
-        <md-icon>menu</md-icon>
-        </button>
-        
-        <md-menu #menu="mdMenu" >
-          <a 
-            md-menu-item 
-            [routerLink]="['/profile', userUid(), userName()]" 
-            [queryParams]="{profile: '1'}" >
-            <md-icon class="profile">face</md-icon>
-            <span>Profile</span>
-          </a>
-
-          <a md-menu-item routerLink="/messages">
-            <md-icon class="messages">chat</md-icon>
-            <span>Messages</span>
-          </a>
-
-          <a md-menu-item *ngFor="let item of menuItems" href="{{item.link}}">
-            <md-icon class="login">{{item.icon}}</md-icon>
-            <span>{{item.title}}</span>
-          </a>
-
-          <a 
-            md-menu-item 
-            routerLink="/profile-settings" 
-            [queryParams]="{profile: '1'}" 
-            fragment="editProfile">
-            <md-icon class="settings">settings</md-icon>
-            <span>Settings</span>
-          </a>
-
-          <a md-menu-item (click)="onLogout()">
-            <md-icon class="logout">lock_outline</md-icon>
-            <span>Logout</span>
-          </a>
-        </md-menu> 
-
-      </ng-template>
-</md-toolbar>
-
-<md-tab-group>
-  <md-tab label="COMP">
-     <!-- <div id="content">
-        <md-card>
-          <h1>Home</h1>
-          <app-slide></app-slide>
-        </md-card>
-      </div>-->
-  </md-tab>
-
-  <md-tab label="MISC">
-      <div id="content">
-        <md-card>
-          <h1>Various components (temporary)</h1>
-          <h3>Misc</h3>
-          Other components: <br/>
-          <b>
-          <a routerLink="/profile">Profile</a> <br/>
-          <a routerLink="/profile-settings">Profile settings</a> <br/>
-          <!-- <a routerLink="/messages">Messages</a> <br/><br/> -->
-          </b> 
-
-          <button md-raised-button (click)="onLogout()">Logout</button>
-          <!-- <button md-button (click)="onFetchData()">Fetch users</button>
-          <button md-button (click)="onSaveData()">Save users</button> -->
-        </md-card>
-      </div>
-  </md-tab>
-
-</md-tab-group>
