@@ -1,15 +1,10 @@
+<app-header></app-header><br />
 
-<header>
-  <router-outlet name="header"></router-outlet>
-</header>
+<router-outlet></router-outlet>
 
-<article fxFlex
-  [class.animation-content-out]="activateAnimation"
-  [class.animation-content-in]="!activateAnimation"
->
-  <router-outlet></router-outlet>
-</article>
+<!-- See users and messages in console log -->
+<div id="messages"> </div>
+<div id="users"> </div>
+<div id="touch"> </div>
 
-<footer>
-  <router-outlet name="footer"></router-outlet>
-</footer>
+<app-footer></app-footer> 

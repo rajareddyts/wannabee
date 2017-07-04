@@ -6,14 +6,21 @@
 
 # dependencies
 /node_modules
-/bower_components
 
 # IDEs and editors
 /.idea
 .project
 .classpath
+.c9/
 *.launch
 .settings/
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # misc
 /.sass-cache
@@ -23,6 +30,10 @@
 npm-debug.log
 testem.log
 /typings
+src/app/components/carousel/readme.md
+readme.txt
+todo.txt
+package-lock.json
 
 # e2e
 /e2e/*.js
@@ -31,4 +42,3 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
-/.firebaserc

@@ -1,14 +1,26 @@
-import { Angular2FirebaseMaterialDemoPage } from './app.po';
+import { Angular4ProjectPage } from './app.po';
+import { browser, element, by } from 'protractor';
 
-describe('angular2-firebase-material-demo App', function() {
-  let page: Angular2FirebaseMaterialDemoPage;
+describe('angular4-project App', function() {
+  let page: Angular4ProjectPage;
 
   beforeEach(() => {
-    page = new Angular2FirebaseMaterialDemoPage();
+    page = new Angular4ProjectPage();
   });
 
-  it('should display message saying app works', () => {
+  /*it('should display message saying app works', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('app works!');
   });
+
+  it('should display message lorem ipsum dolor...', () => {
+    page.navigateTo();
+    expect(page.getParagraphText()).toEqual('Lorem ipsum dolor');
+  });*/
+
+  it('Button text should be register', () => {
+    browser.get('http://localhost:4200/signup');
+    expect(browser.getButtonText()).toEqual('Register');
+  });
+
 });
