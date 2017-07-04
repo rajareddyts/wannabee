@@ -12,7 +12,7 @@
 
 
     <div *ngIf="!authService.isAuthenticated(); else loggedin">
-      <a routerLink="/signup" md-raised-button color="accent"><md-icon class="icon">person_add</md-icon> Sign Up</a>
+      <a routerLink="/signup" md-raised-button color="accent" class="signup"><md-icon class="icon">person_add</md-icon> Sign Up</a>
           <span class="spacer-light"></span>
       <a routerLink="/login" md-raised-button color="warn"><md-icon class="icon">lock_open</md-icon>Login</a>
     </div>
