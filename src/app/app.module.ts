@@ -8,6 +8,11 @@ import 'hammerjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+
 // Modules
 import { MessagesModule } from './components/messages/messages.module';
 import { PipesModule } from './pipes/pipes.module';
@@ -41,6 +46,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { PageNotFoundComponent } from './components/not-found/not-found.component';
 import { EmailMeComponent } from './components/email-me/email-me.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +75,10 @@ import { EmailMeComponent } from './components/email-me/email-me.component';
     AuthModule,
     BackgroundsModule,
     ProfileModule,
-    MiscModule
+    MiscModule,
+    AngularFireModule.initializeApp(environment.firebase, 'app-root'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
     UserService,

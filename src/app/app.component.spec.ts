@@ -2,12 +2,16 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {HeaderComponent} from './components/shared/layout/header.component'
+import {FooterComponent} from './components/shared/layout/footer.component'
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+        FooterComponent
       ],
     });
     TestBed.compileComponents();
