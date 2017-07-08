@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { AlertService, UserService } from '../shared';
+import { AlertService, UserService } from '../../services';
 
 @Component({
   selector: 'app-email-me',

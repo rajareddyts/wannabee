@@ -1,17 +1,28 @@
 /* tslint:disable:no-unused-variable */
-
+import {
+    RouterTestingModule
+} from '@angular/router/testing';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app.routing'; 
 import {HeaderComponent} from './components/shared/layout/header.component'
 import {FooterComponent} from './components/shared/layout/footer.component'
-
+import {TitleCasePipeComponent} from './pipes/titlecase-pipe.component';
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [
+        RouterTestingModule.withRoutes([
+          { path: '', component: AppComponent }
+        ])
+      ],
       declarations: [
         AppComponent,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        TitleCasePipeComponent
       ],
     });
     TestBed.compileComponents();

@@ -3,7 +3,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import * as firebase from 'firebase';
 
-import { User, Profile, UserService } from '../shared';
+import { User, Profile} from '../../models';
+import {UserService } from '../../services';
 
 @Component({
   selector: 'app-profile',

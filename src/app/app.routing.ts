@@ -22,7 +22,7 @@ import { ProfileSettingsComponent } from './components/profile/profile-settings.
 import { MessagesComponent } from './components/messages/messages.component';
 
 // Protected
-import { AuthGuardService } from './components/shared';
+import { AuthGuardService } from './services';
 
 // Routing
 const appRoutes: Routes = [

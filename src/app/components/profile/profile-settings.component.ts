@@ -7,7 +7,8 @@ import { NgForm } from '@angular/forms';
 import * as firebase from 'firebase';
 import { FileUploadModule } from 'primeng/primeng';
 
-import { User, Profile, DataStorageService, AuthService, AlertService, UserService } from '../shared';
+import { User, Profile} from '../../models';
+import {DataStorageService, AuthService, AlertService, UserService } from '../../services';
 
 @Component({
   selector: 'app-profile-settings',

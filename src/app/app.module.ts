@@ -26,11 +26,6 @@ import { MiscModule } from './components/misc/misc.module';
 import {
   FooterComponent,
   HeaderComponent,
-  UserService,
-  DataStorageService,
-  AlertService,
-  AuthGuardService,
-  AuthService
 } from './components/shared';
 
 // Main
@@ -46,7 +41,12 @@ import { ContactComponent } from './components/contact/contact.component';
 import { PageNotFoundComponent } from './components/not-found/not-found.component';
 import { EmailMeComponent } from './components/email-me/email-me.component';
 
-
+// Services
+import {UserService,
+  DataStorageService,
+  AlertService,
+  AuthGuardService,
+  AuthService} from './services'
 
 @NgModule({
   declarations: [
