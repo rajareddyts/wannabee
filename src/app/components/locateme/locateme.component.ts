@@ -56,7 +56,7 @@ export class LocatemeComponent implements OnInit {
     this.searchControl = new FormControl();
     
     //set current position
-    this.setCurrentPosition();
+    //this.setCurrentPosition();
     
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
