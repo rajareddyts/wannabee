@@ -7,6 +7,10 @@ import { MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
 import 'hammerjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import {} from '@types/googlemaps';
+
+
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -40,13 +44,14 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PageNotFoundComponent } from './components/not-found/not-found.component';
 import { EmailMeComponent } from './components/email-me/email-me.component';
+import { LocatemeComponent } from './components/locateme/locateme.component';
 
 // Services
 import {UserService,
   DataStorageService,
   AlertService,
   AuthGuardService,
-  AuthService} from './services'
+  AuthService} from './services';
 
 @NgModule({
   declarations: [
@@ -57,7 +62,8 @@ import {UserService,
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
-    EmailMeComponent
+    EmailMeComponent,
+    LocatemeComponent
     // routingComponents
   ],
   imports: [
@@ -78,7 +84,11 @@ import {UserService,
     MiscModule,
     AngularFireModule.initializeApp(environment.firebase, 'app-root'),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyBS4HxTa_ddVU4hXnrezjidMVQPNx1i1P0",
+      libraries: ["places"]
+    }),
   ],
   providers: [
     UserService,

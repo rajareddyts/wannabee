@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './components/not-found/not-found.componen
 // Pages
 import { HomeComponent } from './components/home/home.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
+import { LocatemeComponent } from './components/locateme/locateme.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MiscComponent } from './components/misc/misc.component';
 
@@ -28,7 +29,8 @@ import { AuthGuardService } from './services';
 const appRoutes: Routes = [
   
   // Public pages
-  { path: '', redirectTo: '/home', pathMatch : 'full' },
+  { path: '', redirectTo: '/locateme', pathMatch : 'full' },
+  { path: 'locateme', component: LocatemeComponent},
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutMeComponent },
   { path: 'contact', component: ContactComponent },
