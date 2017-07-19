@@ -51,7 +51,7 @@ import {UserService,
   DataStorageService,
   AlertService,
   AuthGuardService,
-  AuthService} from './services';
+  AuthService, ApiClientService} from './services';
 
 @NgModule({
   declarations: [
@@ -95,7 +95,8 @@ import {UserService,
     DataStorageService,
     AlertService,
     AuthGuardService,
-    AuthService
+    AuthService,
+    ApiClientService
   ],
   bootstrap: [AppComponent]
 })
